@@ -1,4 +1,4 @@
-import { Ellipsis, Plus } from "lucide-react";
+import { Check, CheckCheck, Ellipsis, Plus } from "lucide-react";
 import logo from "../assets/img/syntaski-logo.png";
 import imgNoTask from "../assets/img/no-task.svg";
 import "./CardAddTask.scss";
@@ -6,7 +6,7 @@ import Button from "./Button";
 import Input from "./Input";
 import { useState } from "react";
 
-const CardAddTask = ({ addTaskValue, task }) => {
+const CardAddTask = ({ addTaskValue, completeTask, task }) => {
   const btnStyle = {
     btnAdd: {
       display: "flex",
@@ -34,6 +34,10 @@ const CardAddTask = ({ addTaskValue, task }) => {
   // Valor do input
   const [taskValue, setTaskValue] = useState(null);
 
+  const handleAddTask = () => {
+    addTaskValue(taskValue);
+  };
+
   return (
     <div className="card">
       <div className="card-header">
@@ -43,27 +47,37 @@ const CardAddTask = ({ addTaskValue, task }) => {
         </div>
         <Button style={btnStyle.btnOption} content={<Ellipsis />} />
       </div>
-      <label className="card-body">
-        <Input
-          event={(e) => setTaskValue(e.target.value)}
-          setTaskValue={setTaskValue}
-          style={btnStyle.inputAdd}
-          placeholder={"Digite uma tarefa"}
-        />
-        <Button
-          event={() => {
-            addTaskValue(taskValue);
-          }}
-          style={btnStyle.btnAdd}
-          content={<Plus />}
-        />
-      </label>
+      <form>
+        <label className="card-body">
+          <Input
+            event={(e) => setTaskValue(e.target.value)}
+            setTaskValue={setTaskValue}
+            style={btnStyle.inputAdd}
+            placeholder={"Digite uma tarefa"}
+            value={taskValue}
+          />
+          <Button
+            event={(e) => {
+              e.preventDefault();
+              handleAddTask();
+              setTaskValue("");
+            }}
+            style={btnStyle.btnAdd}
+            content={<Plus />}
+          />
+        </label>
+      </form>
       {task.length ? (
         <ul className="list-tasks">
           {task.map((task) => (
-            <li key={task.id}>
-              <input type="checkbox" />
-              <p>{task.title}</p>
+            <li
+              className="task-added"
+              onClick={() => completeTask(task.id)}
+              key={task.id}
+            >
+              <p className={`${task.isConcluded ? "concluded" : ""}`}>
+                {task.title}
+              </p>
             </li>
           ))}
         </ul>

@@ -5,7 +5,7 @@
   margin: auto;
   overflow-wrap: break-word;
   word-break: break-all;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
 
   .card-header {
@@ -19,7 +19,7 @@
     margin: 1rem 0 2rem 0;
   }
 
-  .list-tasks li {
+  .list-tasks .task-added {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -30,10 +30,30 @@
     border-bottom: 1px solid rgb(210, 210, 210);
     padding: 10px 0;
     width: 100%;
+    cursor: pointer;
 
     &:last-child {
       border-bottom: 0;
       padding-bottom: 0;
+    }
+
+    input {
+      appearance: none;
+      border: solid 2px $primary-color;
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+    }
+
+    p {
+      &.concluded {
+        text-decoration: line-through;
+        color: rgb(164, 164, 164);
+      }
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
     }
   }
 

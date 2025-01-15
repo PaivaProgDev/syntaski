@@ -1,27 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
-
-import { Plus, Ellipsis } from "lucide-react";
 
 // Components
 import CardAddTask from "./components/CardAddTask";
 
 const App = () => {
-  const [task, setTask] = useState([
-    {
-      id: 1,
-      title:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, in. Ex reprehenderit velit pariatur ipsa! Eum, voluptate quas vel vitae minus nam cupiditate molestias quis recusandae, excepturi deleniti! Soluta, earum?",
-      isConcluded: false,
-    },
-    {
-      id: 2,
-      title:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, in. Ex reprehenderit velit pariatur ipsa! Eum, voluptate quas vel vitae minus nam cupiditate molestias quis recusandae, excepturi deleniti! Soluta, earum?",
-      isConcluded: false,
-    },
-  ]);
+  const [task, setTask] = useState(() => {
+    const localSaved = localStorage.getItem("task");
+    return localSaved ? JSON.parse(localSaved) : [];
+  });
 
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(task));
+  }, [task]);
+
+  //   Adiciona uma tarefa
   const addTaskValue = (taskValue) => {
     setTask((prev) => {
       return [
@@ -35,9 +28,29 @@ const App = () => {
     });
   };
 
+  //   Atualiza o estado de conclusão da tarefa
+  const completeTask = (taskId) => {
+    const completeTask = task.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isConcluded: !task.isConcluded,
+        };
+      }
+
+      return task;
+    });
+    setTask(completeTask);
+  };
+
   return (
     <main className="container">
-      <CardAddTask task={task} setTask={setTask} addTaskValue={addTaskValue} />
+      <CardAddTask
+        task={task}
+        setTask={setTask}
+        addTaskValue={addTaskValue}
+        completeTask={completeTask}
+      />
     </main>
   );
 };
