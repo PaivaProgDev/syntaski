@@ -4,8 +4,9 @@ import imgNoTask from "../assets/img/no-task.svg";
 import "./CardAddTask.scss";
 import Button from "./Button";
 import Input from "./Input";
+import { useState } from "react";
 
-const CardAddTask = () => {
+const CardAddTask = ({ addTaskValue, task }) => {
   const btnStyle = {
     btnAdd: {
       display: "flex",
@@ -30,6 +31,9 @@ const CardAddTask = () => {
     },
   };
 
+  // Valor do input
+  const [taskValue, setTaskValue] = useState(null);
+
   return (
     <div className="card">
       <div className="card-header">
@@ -40,19 +44,41 @@ const CardAddTask = () => {
         <Button style={btnStyle.btnOption} content={<Ellipsis />} />
       </div>
       <label className="card-body">
-        <Input style={btnStyle.inputAdd} placeholder={"Digite uma tarefa"} />
-        <Button style={btnStyle.btnAdd} content={<Plus />} />
+        <Input
+          event={(e) => setTaskValue(e.target.value)}
+          setTaskValue={setTaskValue}
+          style={btnStyle.inputAdd}
+          placeholder={"Digite uma tarefa"}
+        />
+        <Button
+          event={() => {
+            addTaskValue(taskValue);
+          }}
+          style={btnStyle.btnAdd}
+          content={<Plus />}
+        />
       </label>
-      <div className="tasks">
-        <img src={imgNoTask} alt="" />
-        <div className="warning-tasks">
-          <h3>Oops, sem tarefas...</h3>
-          <p>
-            Digite algo e clique no <span className="more">+</span> para
-            adicionar uma tarefa
-          </p>
+      {task.length ? (
+        <ul className="list-tasks">
+          {task.map((task) => (
+            <li key={task.id}>
+              <input type="checkbox" />
+              <p>{task.title}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className="tasks">
+          <img src={imgNoTask} alt="" />
+          <div className="warning-tasks">
+            <h3>Oops, sem tarefas...</h3>
+            <p>
+              Digite algo e clique no <span className="more">+</span> para
+              adicionar uma tarefa
+            </p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

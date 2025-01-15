@@ -3,7 +3,8 @@
   background-color: #fff;
   max-width: 30rem;
   margin: auto;
-
+  overflow-wrap: break-word;
+  word-break: break-all;
   padding: 20px;
   border-radius: 10px;
 
@@ -16,6 +17,24 @@
   .card-body {
     display: flex;
     margin: 1rem 0 2rem 0;
+  }
+
+  .list-tasks li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $option-color;
+    font-weight: 300;
+    font-size: 0.9rem;
+    text-wrap: wrap;
+    border-bottom: 1px solid rgb(210, 210, 210);
+    padding: 10px 0;
+    width: 100%;
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
   }
 
   .tasks {
