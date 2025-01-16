@@ -92,8 +92,18 @@
 }
 
 .task-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   &.concluded {
     text-decoration: line-through;
+    color: rgb(164, 164, 164);
+  }
+  .clipboard-icon-task {
+    color: $primary-color;
+  }
+
+  &.concluded > .clipboard-icon-task {
     color: rgb(164, 164, 164);
   }
 }

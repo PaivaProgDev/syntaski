@@ -1,6 +1,7 @@
 // icons
 import {
   BookmarkCheck,
+  ClipboardList,
   MoreHorizontal,
   Plus,
   Settings2Icon,
@@ -105,6 +106,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task, handleEditModal }) => {
               key={task.id}
             >
               <p className={`task-line ${task.isConcluded ? "concluded" : ""}`}>
+                <ClipboardList className="clipboard-icon-task" width={22} />
                 {task.title}
               </p>
             </li>

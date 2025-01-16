@@ -1,7 +1,8 @@
 import "./EditModal.scss";
 import logo from "../assets/img/syntaski-logo.png";
-import { ChevronRightIcon, Pencil, Trash } from "lucide-react";
+import { ChevronRightIcon, Pencil, Trash, ClipboardList } from "lucide-react";
 import imgNoTask from "../assets/img/no-task.svg";
+import CardAddTask from "./CardAddTask";
 
 import { useState } from "react";
 
@@ -32,6 +33,7 @@ const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
                 <p
                   className={`task-line ${task.isConcluded ? "concluded" : ""}`}
                 >
+                  <ClipboardList className="clipboard-icon-task" width={22} />
                   {task.title}
                 </p>
                 <div className="btns-tasks">
@@ -54,8 +56,8 @@ const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
             <div className="warning-tasks">
               <h3>Oops, sem tarefas...</h3>
               <p>
-                Digite algo e clique no <span className="more">+</span> para
-                adicionar uma tarefa
+                Volte e clique no <span className="more">+</span> para adicionar
+                uma tarefa
               </p>
             </div>
           </div>
