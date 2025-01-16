@@ -8,6 +8,7 @@
   padding: 25px;
   border-radius: 10px;
 
+  position: relative;
   .card-header {
     display: flex;
     align-items: center;
@@ -32,6 +33,7 @@
     width: 100%;
     cursor: pointer;
     position: relative;
+    border-bottom: solid 1px rgb(206, 206, 206);
 
     &:last-child {
       border-bottom: 0;

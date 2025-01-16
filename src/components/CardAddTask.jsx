@@ -1,10 +1,20 @@
+// icons
 import { Plus, Settings2Icon } from "lucide-react";
+
+// styles
+import "./CardAddTask.scss";
+
+// states
+import { useState } from "react";
+
+// images
 import logo from "../assets/img/syntaski-logo.png";
 import imgNoTask from "../assets/img/no-task.svg";
-import "./CardAddTask.scss";
+
+// components
+import PopupOption from "./PopupOption";
 import Button from "./Button";
 import Input from "./Input";
-import { useState } from "react";
 
 const CardAddTask = ({ addTaskValue, completeTask, task }) => {
   // Estilo dos botões
@@ -34,10 +44,15 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
 
   // Valor do input
   const [taskValue, setTaskValue] = useState("");
+  const [popUpIsOpen, setPopUpIsOpen] = useState(false)
 
   const handleAddTask = () => {
     addTaskValue(taskValue);
   };
+
+  const handlePopup = () => {
+    setPopUpIsOpen(!popUpIsOpen)
+  }
 
   return (
     <div className="card">
@@ -49,6 +64,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
         <Button
           style={btnStyle.btnOption}
           content={<Settings2Icon color="#373737" />}
+          event={handlePopup}
         />
       </div>
       <form>
@@ -63,7 +79,9 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
           <Button
             event={(e) => {
               e.preventDefault();
-              handleAddTask();
+              if (taskValue !== '') {
+                handleAddTask();
+              }
             }}
             style={btnStyle.btnAdd}
             content={<Plus />}
@@ -96,6 +114,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
           </div>
         </div>
       )}
+      <PopupOption isOpen={popUpIsOpen} isClose={handlePopup} />
     </div>
   );
 };
