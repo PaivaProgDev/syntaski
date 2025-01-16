@@ -1,14 +1,16 @@
 @import "../styles/variables.scss";
+
 .card {
   background-color: #fff;
+  width: 100%;
   max-width: 30rem;
   margin: auto;
   overflow-wrap: break-word;
   word-break: break-all;
   padding: 25px;
   border-radius: 10px;
-
   position: relative;
+
   .card-header {
     display: flex;
     align-items: center;

@@ -3,6 +3,7 @@ import "./index.scss";
 
 // Components
 import CardAddTask from "./components/CardAddTask";
+import EditModal from "./components/EditModal";
 
 // Estado das tarefas
 const App = () => {
@@ -11,6 +12,8 @@ const App = () => {
     const localSaved = localStorage.getItem("task");
     return localSaved ? JSON.parse(localSaved) : [];
   });
+
+
 
   //   Local Storage - Seleciona as tarefas
   useEffect(() => {
@@ -54,6 +57,7 @@ const App = () => {
         addTaskValue={addTaskValue}
         completeTask={completeTask}
       />
+      <EditModal task={task} setTask={setTask} />
     </main>
   );
 };

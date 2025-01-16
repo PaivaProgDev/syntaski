@@ -4,21 +4,21 @@ import "./PopupOption.scss";
 const PopupOption = ({ isOpen, isClose }) => {
   return (
     <div className={`popup-bg ${isOpen ? "active" : ""}`} onClick={isClose}>
-      <ul onClick={(e) => e.stopPropagation()} className="popup-card">
-        <li>
+      <div onClick={(e) => e.stopPropagation()} className="popup-card">
+        <button>
           <Pencil className="icon" />
           <span>Editar</span>
-        </li>
-        <li>
+        </button>
+        <button>
           <Sun className="icon" />
           {/* <Moon /> */}
           <span>Tema</span>
-        </li>
-        <li>
+        </button>
+        <button>
           <Info className="icon" />
           <span>Informações</span>
-        </li>
-      </ul>
+        </button>
+      </div>
     </div>
   );
 };

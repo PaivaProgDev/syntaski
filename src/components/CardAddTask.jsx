@@ -46,10 +46,12 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
   const [taskValue, setTaskValue] = useState("");
   const [popUpIsOpen, setPopUpIsOpen] = useState(false)
 
+  // Adicionar tarefas
   const handleAddTask = () => {
     addTaskValue(taskValue);
   };
 
+  // Abre e fecha o pop-up
   const handlePopup = () => {
     setPopUpIsOpen(!popUpIsOpen)
   }
