@@ -1,4 +1,10 @@
-import { Check, CheckCheck, Ellipsis, Plus } from "lucide-react";
+import {
+  ChevronRight,
+  Ellipsis,
+  EllipsisVertical,
+  Plus,
+  Settings2Icon,
+} from "lucide-react";
 import logo from "../assets/img/syntaski-logo.png";
 import imgNoTask from "../assets/img/no-task.svg";
 import "./CardAddTask.scss";
@@ -7,6 +13,7 @@ import Input from "./Input";
 import { useState } from "react";
 
 const CardAddTask = ({ addTaskValue, completeTask, task }) => {
+  // Estilo dos botões
   const btnStyle = {
     btnAdd: {
       display: "flex",
@@ -45,7 +52,10 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
           <img className="logo" src={logo} alt="Logo da Syntaski" />
           <span>Syntaski</span>
         </div>
-        <Button style={btnStyle.btnOption} content={<Ellipsis />} />
+        <Button
+          style={btnStyle.btnOption}
+          content={<Settings2Icon color="#373737" />}
+        />
       </div>
       <form>
         <label className="card-body">
@@ -78,6 +88,11 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
               <p className={`${task.isConcluded ? "concluded" : ""}`}>
                 {task.title}
               </p>
+              <EllipsisVertical
+                className="more-option-icon"
+                width={30}
+                color="#373737"
+              />
             </li>
           ))}
         </ul>

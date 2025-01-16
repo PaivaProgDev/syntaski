@@ -4,12 +4,15 @@ import "./index.scss";
 // Components
 import CardAddTask from "./components/CardAddTask";
 
+// Estado das tarefas
 const App = () => {
   const [task, setTask] = useState(() => {
+    // Local Storage - pega as tarefas
     const localSaved = localStorage.getItem("task");
     return localSaved ? JSON.parse(localSaved) : [];
   });
 
+  //   Local Storage - Seleciona as tarefas
   useEffect(() => {
     localStorage.setItem("task", JSON.stringify(task));
   }, [task]);
