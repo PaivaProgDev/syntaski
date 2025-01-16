@@ -1,11 +1,10 @@
-import { EllipsisVertical, Plus, Settings2Icon } from "lucide-react";
+import { Plus, Settings2Icon } from "lucide-react";
 import logo from "../assets/img/syntaski-logo.png";
 import imgNoTask from "../assets/img/no-task.svg";
 import "./CardAddTask.scss";
 import Button from "./Button";
 import Input from "./Input";
 import { useState } from "react";
-import PopupTask from "./PopupTask";
 
 const CardAddTask = ({ addTaskValue, completeTask, task }) => {
   // Estilo dos botões
@@ -35,15 +34,9 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
 
   // Valor do input
   const [taskValue, setTaskValue] = useState("");
-  const [popupIsOpen, setpopupIsOpen] = useState(false);
 
   const handleAddTask = () => {
     addTaskValue(taskValue);
-  };
-
-  //   Abre o popup
-  const handlePopup = (popupId) => {
-    console.log(popupId);
   };
 
   return (
@@ -88,13 +81,6 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
               <p className={`${task.isConcluded ? "concluded" : ""}`}>
                 {task.title}
               </p>
-              <EllipsisVertical
-                className="more-option-icon"
-                width={30}
-                color="#373737"
-                onClick={() => handlePopup(task.id)}
-              />
-              <PopupTask popupIsOpen={popupIsOpen} popupId={task.id} />
             </li>
           ))}
         </ul>
