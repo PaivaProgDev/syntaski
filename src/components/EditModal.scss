@@ -1,95 +1,137 @@
-@import '../styles/variables.scss';
+@import "../styles/variables.scss";
 
 .bg-modal-edit {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    pointer-events: none;
-    opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: 250ms ease-in-out;
+  background: linear-gradient($primary-color, $secondary-color);
+  z-index: 2;
+
+  &.active {
+    visibility: visible;
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &.active > .modal-content {
+    transform: translateY(0);
+  }
+
+  .modal-content {
+    background-color: white;
+    width: 100%;
+    max-width: 30rem;
+    padding: 25px;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    height: 100%;
+    max-height: fit-content;
+    margin-top: 2rem;
+    transform: translateY(-10px);
     transition: 250ms ease-in-out;
 
-    &.active {
-        visibility: visible;
-        pointer-events: all;
-        opacity: 1;
+    .modal-edit-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: solid 1px rgb(201, 201, 201);
+      padding-bottom: 10px;
     }
 
-    .modal-content {
-        background-color: white;
-        width: 100%;
-        max-width: 30rem;
-        padding: 25px;
-        border-radius: 10px;
-        overflow-wrap: break-word;
-        word-break: break-all;
+    .task-edit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: $option-color;
+      font-weight: 300;
+      font-size: 0.9rem;
+      text-wrap: wrap;
+      padding: 10px 0;
+      width: 100%;
+      cursor: pointer;
+      position: relative;
+      border-bottom: solid 1px rgb(206, 206, 206);
 
-        .modal-edit-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: solid 1px rgb(201, 201, 201);
-            padding-bottom: 10px;
+      .btns-tasks {
+        display: flex;
+        gap: 8px;
+
+        .btn-edit,
+        .btn-del {
+          display: flex;
+          align-items: center;
+          border: 0;
+          padding: 5px;
+          width: 30px;
+          height: 30px;
+          border-radius: 5px;
+          color: white;
+          cursor: pointer;
         }
 
-        .task-edit {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            color: $option-color;
-            font-weight: 300;
-            font-size: 0.9rem;
-            text-wrap: wrap;
-            padding: 10px 0;
-            width: 100%;
-            cursor: pointer;
-            position: relative;
-            border-bottom: solid 1px rgb(206, 206, 206);
-
-            .btns-tasks {
-                display: flex;
-                gap: 8px;
-
-                .btn-edit,
-                .btn-del {
-                    display: flex;
-                    align-items: center;
-                    border: 0;
-                    padding: 5px;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 5px;
-                    color: white;
-                    cursor: pointer;
-                }
-
-                .btn-edit {
-                    background-color: $primary-color;
-                }
-
-                .btn-del {
-                    background-color: $option-color;
-                }
-            }
+        .btn-edit {
+          background-color: $primary-color;
         }
+
+        .btn-del {
+          background-color: $option-color;
+        }
+      }
     }
+  }
+}
+
+.task-line {
+  &.concluded {
+    text-decoration: line-through;
+    color: rgb(164, 164, 164);
+  }
+}
+.tasks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+
+  .warning-tasks {
+    color: $task-color;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.95rem;
+      width: 90%;
+
+      .more {
+        font-size: 2rem;
+        color: $secondary-color;
+      }
+    }
+  }
 }
 
 .logo-modal {
-    max-width: 30px;
+  max-width: 30px;
 }
 
 .btn-close-modal {
-    display: flex;
-    background-color: transparent;
-    border: 0;
-    padding: 3px;
-    cursor: pointer;
-    color: $option-color;
+  display: flex;
+  background-color: transparent;
+  border: 0;
+  padding: 3px;
+  cursor: pointer;
+  color: $option-color;
 }

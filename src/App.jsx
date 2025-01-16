@@ -13,8 +13,6 @@ const App = () => {
     return localSaved ? JSON.parse(localSaved) : [];
   });
 
-
-
   //   Local Storage - Seleciona as tarefas
   useEffect(() => {
     localStorage.setItem("task", JSON.stringify(task));
@@ -49,6 +47,13 @@ const App = () => {
     setTask(completeTask);
   };
 
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [clickOutside, setClickOutside] = useState(false);
+  //   Toggle modal
+  const handleEditModal = () => {
+    setOpenEditModal(!openEditModal);
+  };
+
   return (
     <main className="container">
       <CardAddTask
@@ -56,8 +61,14 @@ const App = () => {
         setTask={setTask}
         addTaskValue={addTaskValue}
         completeTask={completeTask}
+        handleEditModal={handleEditModal}
       />
-      <EditModal task={task} setTask={setTask} />
+      <EditModal
+        task={task}
+        setTask={setTask}
+        handleEditModal={handleEditModal}
+        openEditModal={openEditModal}
+      />
     </main>
   );
 };

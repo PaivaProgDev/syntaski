@@ -1,5 +1,10 @@
 // icons
-import { Plus, Settings2Icon } from "lucide-react";
+import {
+  BookmarkCheck,
+  MoreHorizontal,
+  Plus,
+  Settings2Icon,
+} from "lucide-react";
 
 // styles
 import "./CardAddTask.scss";
@@ -16,7 +21,7 @@ import PopupOption from "./PopupOption";
 import Button from "./Button";
 import Input from "./Input";
 
-const CardAddTask = ({ addTaskValue, completeTask, task }) => {
+const CardAddTask = ({ addTaskValue, completeTask, task, handleEditModal }) => {
   // Estilo dos botões
   const btnStyle = {
     btnAdd: {
@@ -44,7 +49,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
 
   // Valor do input
   const [taskValue, setTaskValue] = useState("");
-  const [popUpIsOpen, setPopUpIsOpen] = useState(false)
+  const [popUpIsOpen, setPopUpIsOpen] = useState(false);
 
   // Adicionar tarefas
   const handleAddTask = () => {
@@ -53,8 +58,8 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
 
   // Abre e fecha o pop-up
   const handlePopup = () => {
-    setPopUpIsOpen(!popUpIsOpen)
-  }
+    setPopUpIsOpen(!popUpIsOpen);
+  };
 
   return (
     <div className="card">
@@ -81,8 +86,9 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
           <Button
             event={(e) => {
               e.preventDefault();
-              if (taskValue !== '') {
+              if (taskValue !== "") {
                 handleAddTask();
+                setTaskValue("");
               }
             }}
             style={btnStyle.btnAdd}
@@ -98,7 +104,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
               onClick={() => completeTask(task.id)}
               key={task.id}
             >
-              <p className={`${task.isConcluded ? "concluded" : ""}`}>
+              <p className={`task-line ${task.isConcluded ? "concluded" : ""}`}>
                 {task.title}
               </p>
             </li>
@@ -116,7 +122,11 @@ const CardAddTask = ({ addTaskValue, completeTask, task }) => {
           </div>
         </div>
       )}
-      <PopupOption isOpen={popUpIsOpen} isClose={handlePopup} />
+      <PopupOption
+        handleEditModal={handleEditModal}
+        isOpen={popUpIsOpen}
+        isClose={handlePopup}
+      />
     </div>
   );
 };

@@ -37,6 +37,13 @@
     position: relative;
     border-bottom: solid 1px rgb(206, 206, 206);
 
+    .checklist {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      position: relative;
+    }
+
     &:last-child {
       border-bottom: 0;
       padding-bottom: 0;
@@ -48,9 +55,13 @@
       width: 15px;
       height: 15px;
       border-radius: 3px;
+
+      &:checked {
+        background-color: rgb(146, 146, 255);
+      }
     }
 
-    p {
+    .task-line {
       &.concluded {
         text-decoration: line-through;
         color: rgb(164, 164, 164);
@@ -81,6 +92,7 @@
 
       p {
         font-size: 0.95rem;
+        width: 90%;
 
         .more {
           font-size: 2rem;
