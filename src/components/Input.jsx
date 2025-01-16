@@ -1,11 +1,11 @@
-const Input = ({ style, placeholder, event, value }) => {
+const Input = ({ style, placeholder, event, values }) => {
   return (
     <input
       onChange={event}
       style={style}
       type="text"
       placeholder={placeholder}
-      value={value}
+      value={values}
     ></input>
   );
 };

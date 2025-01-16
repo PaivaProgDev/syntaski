@@ -28,10 +28,10 @@
     font-weight: 300;
     font-size: 0.9rem;
     text-wrap: wrap;
-    border-bottom: 1px solid rgb(210, 210, 210);
     padding: 10px 0;
     width: 100%;
     cursor: pointer;
+    position: relative;
 
     &:last-child {
       border-bottom: 0;
