@@ -6,6 +6,13 @@ import imgNoTask from "../assets/img/no-task.svg";
 import { useState } from "react";
 
 const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
+  // Deleta a tarefa
+  const handleDelTask = (taskId) => {
+    const prev = task.filter((filteredTask) => filteredTask.id !== taskId);
+
+    setTask(prev);
+  };
+
   return (
     <div className={`bg-modal-edit ${openEditModal ? "active" : ""}`}>
       <div className="modal-content">
@@ -31,7 +38,10 @@ const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
                   <button className="btn-edit">
                     <Pencil />
                   </button>
-                  <button className="btn-del">
+                  <button
+                    onClick={() => handleDelTask(task.id)}
+                    className="btn-del"
+                  >
                     <Trash />
                   </button>
                 </div>
