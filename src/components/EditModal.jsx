@@ -1,10 +1,7 @@
 import "./EditModal.scss";
 import logo from "../assets/img/syntaski-logo.png";
 import { ChevronRightIcon, Pencil, Trash, ClipboardList } from "lucide-react";
-import imgNoTask from "../assets/img/no-task.svg";
-import CardAddTask from "./CardAddTask";
-
-import { useState } from "react";
+import NoTaskMessage from "./noTaskMessage";
 
 const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
   // Deleta a tarefa
@@ -51,16 +48,7 @@ const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
             ))}
           </ul>
         ) : (
-          <div className="tasks">
-            <img src={imgNoTask} alt="" />
-            <div className="warning-tasks">
-              <h3>Oops, sem tarefas...</h3>
-              <p>
-                Volte e clique no <span className="more">+</span> para adicionar
-                uma tarefa
-              </p>
-            </div>
-          </div>
+          <NoTaskMessage />
         )}
       </div>
     </div>

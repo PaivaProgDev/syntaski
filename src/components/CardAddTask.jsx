@@ -1,11 +1,5 @@
 // icons
-import {
-  BookmarkCheck,
-  ClipboardList,
-  MoreHorizontal,
-  Plus,
-  Settings2Icon,
-} from "lucide-react";
+import { ClipboardList, Plus, Settings2Icon } from "lucide-react";
 
 // styles
 import "./CardAddTask.scss";
@@ -15,7 +9,7 @@ import { useState } from "react";
 
 // images
 import logo from "../assets/img/syntaski-logo.png";
-import imgNoTask from "../assets/img/no-task.svg";
+import NoTaskMessage from "./noTaskMessage";
 
 // components
 import PopupOption from "./PopupOption";
@@ -113,16 +107,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task, handleEditModal }) => {
           ))}
         </ul>
       ) : (
-        <div className="tasks">
-          <img src={imgNoTask} alt="" />
-          <div className="warning-tasks">
-            <h3>Oops, sem tarefas...</h3>
-            <p>
-              Digite algo e clique no <span className="more">+</span> para
-              adicionar uma tarefa
-            </p>
-          </div>
-        </div>
+        <NoTaskMessage />
       )}
       <PopupOption
         handleEditModal={handleEditModal}

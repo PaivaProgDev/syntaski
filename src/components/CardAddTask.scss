@@ -87,31 +87,6 @@
       padding: 3px;
     }
   }
-
-  .tasks {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-
-    .warning-tasks {
-      color: $task-color;
-
-      h3 {
-        font-size: 1.1rem;
-        font-weight: 600;
-      }
-
-      p {
-        font-size: 0.95rem;
-        width: 90%;
-
-        .more {
-          font-size: 2rem;
-          color: $secondary-color;
-        }
-      }
-    }
-  }
 }
 
 .logo-box {
