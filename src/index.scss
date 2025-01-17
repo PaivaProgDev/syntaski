@@ -25,3 +25,30 @@ body {
   min-height: 100vh;
   padding: 2rem 0.5rem;
 }
+
+.transition-container {
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+.fade-in-modal {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 4;
+}
+
+.fade-out-modal {
+  opacity: 0;
+  pointer-events: none;
+}

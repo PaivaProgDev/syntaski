@@ -1,7 +1,7 @@
 import "./EditModal.scss";
 import logo from "../assets/img/syntaski-logo.png";
 import { ChevronRightIcon, Pencil, Trash, ClipboardList } from "lucide-react";
-import NoTaskMessage from "./noTaskMessage";
+import NoTaskMessage from "./NoTaskMessage";
 import { useContext } from "react";
 import TemaContext from "../context/Context";
 

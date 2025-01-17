@@ -10,8 +10,11 @@ const RenameTask = () => {
     useContext(TemaContext);
 
   return (
-    <div className={`rename-task-bg ${openRenameModal ? "active" : ""}`}>
-      <div className="card-content">
+    <div
+      onClick={handleRenameModal}
+      className={`rename-task-bg ${openRenameModal ? "active" : ""}`}
+    >
+      <div onClick={(e) => e.stopPropagation()} className="card-content">
         <div className="logo-box">
           <img className="logo" src={logo} alt="Logo da Syntaski" />
           <span>Syntaski</span>

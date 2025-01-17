@@ -9,7 +9,7 @@ import { useState } from "react";
 
 // images
 import logo from "../assets/img/syntaski-logo.png";
-import NoTaskMessage from "./noTaskMessage";
+import NoTaskMessage from "./NoTaskMessage";
 
 // components
 import PopupOption from "./PopupOption";

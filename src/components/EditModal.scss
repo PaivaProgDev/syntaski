@@ -1,29 +1,8 @@
 @import "../styles/variables.scss";
 
 .bg-modal-edit {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: center;
-  visibility: hidden;
-  pointer-events: none;
-  opacity: 0;
-  transition: 250ms ease-in-out;
-  background: linear-gradient($primary-color, $secondary-color);
-  z-index: 2;
-
-  &.active {
-    visibility: visible;
-    pointer-events: all;
-    opacity: 1;
-  }
-
-  &.active > .modal-content {
-    transform: translateY(0);
-  }
 
   .modal-content {
     background-color: white;
@@ -33,10 +12,6 @@
     border-radius: 10px;
     overflow-wrap: break-word;
     word-break: break-all;
-    height: 100%;
-    max-height: fit-content;
-    margin-top: 2rem;
-    transform: translateY(-10px);
     transition: 250ms ease-in-out;
 
     .modal-edit-header {

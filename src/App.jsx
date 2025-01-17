@@ -75,9 +75,30 @@ const App = () => {
           completeTask,
         }}
       >
-        <CardAddTask />
-        <EditModal />
-        <RenameTask />
+        {/* Transição ao rendezar os componentes */}
+        <div
+          className={`transition-container ${
+            !openEditModal && !openRenameModal ? "fade-in" : "fade-out"
+          }`}
+        >
+          {!openEditModal && !openRenameModal && <CardAddTask />}
+        </div>
+
+        <div
+          className={`transition-container ${
+            openEditModal ? "fade-in" : "fade-out"
+          }`}
+        >
+          {openEditModal && <EditModal />}
+        </div>
+
+        <div
+          className={`transition-container ${
+            openRenameModal ? "fade-in-modal" : "fade-out-modal"
+          }`}
+        >
+          {openRenameModal && <RenameTask />}
+        </div>
       </TemaContext.Provider>
     </main>
   );
