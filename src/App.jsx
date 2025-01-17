@@ -4,6 +4,8 @@ import "./index.scss";
 // Components
 import CardAddTask from "./components/CardAddTask";
 import EditModal from "./components/EditModal";
+import RenameTask from "./components/RenameTask";
+import TemaContext from "./context/Context";
 
 // Estado das tarefas
 const App = () => {
@@ -48,27 +50,35 @@ const App = () => {
   };
 
   const [openEditModal, setOpenEditModal] = useState(false);
-  const [clickOutside, setClickOutside] = useState(false);
+  const [openRenameModal, setOpenRenameModal] = useState(false);
+
   //   Toggle modal
   const handleEditModal = () => {
     setOpenEditModal(!openEditModal);
   };
 
+  const handleRenameModal = () => {
+    setOpenRenameModal(!openRenameModal);
+  };
+
   return (
     <main className="container">
-      <CardAddTask
-        task={task}
-        setTask={setTask}
-        addTaskValue={addTaskValue}
-        completeTask={completeTask}
-        handleEditModal={handleEditModal}
-      />
-      <EditModal
-        task={task}
-        setTask={setTask}
-        handleEditModal={handleEditModal}
-        openEditModal={openEditModal}
-      />
+      <TemaContext.Provider
+        value={{
+          handleRenameModal,
+          setTask,
+          task,
+          openRenameModal,
+          handleEditModal,
+          openEditModal,
+          addTaskValue,
+          completeTask,
+        }}
+      >
+        <CardAddTask />
+        <EditModal />
+        <RenameTask />
+      </TemaContext.Provider>
     </main>
   );
 };

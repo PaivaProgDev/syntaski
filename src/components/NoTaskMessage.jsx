@@ -1,7 +1,7 @@
 import imgNoTask from "../assets/img/no-task.svg";
 import "./NoTaskMessage.scss";
 
-const NoTaskMessage = ({ message }) => {
+const NoTaskMessage = () => {
   return (
     <div className="tasks">
       <img src={imgNoTask} alt="" />

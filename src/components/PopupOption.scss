@@ -10,7 +10,7 @@
   bottom: 0;
   top: 0;
   width: 100%;
-  transition: 250ms ease-in-out;
+  transition: 200ms ease-in-out;
 
   &.active {
     visibility: visible;
@@ -20,6 +20,7 @@
 
   &.active > .popup-card {
     transform: translateX(0);
+    pointer-events: all;
   }
 
   .popup-card {
@@ -35,6 +36,7 @@
     overflow: hidden;
     transform: translateX(8px);
     transition: 250ms ease-in-out;
+    pointer-events: none;
 
     button {
       display: flex;

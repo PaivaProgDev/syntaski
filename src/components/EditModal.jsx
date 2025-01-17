@@ -2,8 +2,13 @@ import "./EditModal.scss";
 import logo from "../assets/img/syntaski-logo.png";
 import { ChevronRightIcon, Pencil, Trash, ClipboardList } from "lucide-react";
 import NoTaskMessage from "./noTaskMessage";
+import { useContext } from "react";
+import TemaContext from "../context/Context";
 
-const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
+const EditModal = () => {
+  const { handleRenameModal, setTask, task, handleEditModal, openEditModal } =
+    useContext(TemaContext);
+
   // Deleta a tarefa
   const handleDelTask = (taskId) => {
     const prev = task.filter((filteredTask) => filteredTask.id !== taskId);
@@ -34,7 +39,7 @@ const EditModal = ({ task, setTask, handleEditModal, openEditModal }) => {
                   {task.title}
                 </p>
                 <div className="btns-tasks">
-                  <button className="btn-edit">
+                  <button onClick={handleRenameModal} className="btn-edit">
                     <Pencil />
                   </button>
                   <button

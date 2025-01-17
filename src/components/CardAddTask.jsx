@@ -15,32 +15,37 @@ import NoTaskMessage from "./noTaskMessage";
 import PopupOption from "./PopupOption";
 import Button from "./Button";
 import Input from "./Input";
+import TemaContext from "../context/Context";
+import { useContext } from "react";
+// Estilo dos botões
 
-const CardAddTask = ({ addTaskValue, completeTask, task, handleEditModal }) => {
-  // Estilo dos botões
-  const btnStyle = {
-    btnAdd: {
-      display: "flex",
-      backgroundColor: "#0033E8",
-      color: "#fff",
-      cursor: "pointer",
-      padding: "5px 7px",
-      alignItems: "center",
-    },
+export const btnStyle = {
+  btnAdd: {
+    display: "flex",
+    backgroundColor: "#0033E8",
+    color: "#fff",
+    cursor: "pointer",
+    padding: "5px 7px",
+    alignItems: "center",
+  },
 
-    btnOption: {
-      backgroundColor: "transparent",
-      cursor: "pointer",
-    },
+  btnOption: {
+    backgroundColor: "transparent",
+    cursor: "pointer",
+  },
 
-    inputAdd: {
-      backgroundColor: "#eaefff",
-      border: 0,
-      padding: "10px 15px",
-      outline: "none",
-      width: "100%",
-    },
-  };
+  inputAdd: {
+    backgroundColor: "#eaefff",
+    border: 0,
+    padding: "10px 15px",
+    outline: "none",
+    width: "100%",
+  },
+};
+
+const CardAddTask = ({}) => {
+  const { addTaskValue, completeTask, task, handleEditModal } =
+    useContext(TemaContext);
 
   // Valor do input
   const [taskValue, setTaskValue] = useState("");
@@ -49,11 +54,6 @@ const CardAddTask = ({ addTaskValue, completeTask, task, handleEditModal }) => {
   // Adicionar tarefas
   const handleAddTask = () => {
     addTaskValue(taskValue);
-  };
-
-  // Abre e fecha o pop-up
-  const handlePopup = () => {
-    setPopUpIsOpen(!popUpIsOpen);
   };
 
   return (
@@ -66,7 +66,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task, handleEditModal }) => {
         <Button
           style={btnStyle.btnOption}
           content={<Settings2Icon color="#373737" />}
-          event={handlePopup}
+          event={() => setPopUpIsOpen(true)}
         />
       </div>
       <form>
@@ -112,7 +112,7 @@ const CardAddTask = ({ addTaskValue, completeTask, task, handleEditModal }) => {
       <PopupOption
         handleEditModal={handleEditModal}
         isOpen={popUpIsOpen}
-        isClose={handlePopup}
+        setPopUpIsOpen={setPopUpIsOpen}
       />
     </div>
   );

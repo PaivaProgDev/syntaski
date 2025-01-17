@@ -1,10 +1,12 @@
-import { Pencil, Moon, Sun, Info } from "lucide-react";
+import { Pencil, Sun, Info } from "lucide-react";
 import "./PopupOption.scss";
 
-import { useState } from "react";
-const PopupOption = ({ isOpen, isClose, handleEditModal }) => {
+const PopupOption = ({ setPopUpIsOpen, isOpen, handleEditModal }) => {
   return (
-    <div className={`popup-bg ${isOpen ? "active" : ""}`} onClick={isClose}>
+    <div
+      className={`popup-bg ${isOpen ? "active" : ""}`}
+      onClick={() => setPopUpIsOpen(false)}
+    >
       <div onClick={(e) => e.stopPropagation()} className="popup-card">
         <button onClick={handleEditModal}>
           <Pencil className="icon" />
