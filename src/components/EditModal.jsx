@@ -17,7 +17,7 @@ const EditModal = () => {
   };
 
   return (
-    <div className={`bg-modal-edit ${openEditModal ? "active" : ""}`}>
+    <div className="bg-modal-edit">
       <div className="modal-content">
         <div className="modal-edit-header">
           <div className="logo-box">
@@ -35,7 +35,6 @@ const EditModal = () => {
                 <p
                   className={`task-line ${task.isConcluded ? "concluded" : ""}`}
                 >
-                  <ClipboardList className="clipboard-icon-task" width={22} />
                   {task.title}
                 </p>
                 <div className="btns-tasks">

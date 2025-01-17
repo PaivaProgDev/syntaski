@@ -35,7 +35,8 @@
     width: 100%;
     cursor: pointer;
     position: relative;
-    border-bottom: solid 1px rgb(206, 206, 206);
+    border-top: solid 1px rgb(206, 206, 206);
+
 
     .checklist {
       display: flex;
@@ -65,6 +66,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+
       &.concluded {
         text-decoration: line-through;
         color: rgb(164, 164, 164);
@@ -74,7 +76,7 @@
         color: $primary-color;
       }
 
-      &.concluded > .clipboard-icon-task {
+      &.concluded>.clipboard-icon-task {
         color: rgb(164, 164, 164);
       }
 

@@ -43,7 +43,7 @@ export const btnStyle = {
   },
 };
 
-const CardAddTask = ({}) => {
+const CardAddTask = ({ }) => {
   const { addTaskValue, completeTask, task, handleEditModal } =
     useContext(TemaContext);
 
@@ -100,8 +100,7 @@ const CardAddTask = ({}) => {
               key={task.id}
             >
               <p className={`task-line ${task.isConcluded ? "concluded" : ""}`}>
-                <ClipboardList className="clipboard-icon-task" width={22} />
-                {task.title}
+                - {task.title}
               </p>
             </li>
           ))}
