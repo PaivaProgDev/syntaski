@@ -11,7 +11,7 @@ import { useContext } from "react";
 import TemaContext from "../context/Context";
 
 const EditModal = () => {
-  const { handleRenameModal, task, handleEditModal, handleDelTask, findTaskRename } =
+  const { handleRenameModal, task, handleEditModal, handleDelTask, setGetTaskId, setTaskValue } =
     useContext(TemaContext);
 
   return (
@@ -37,8 +37,9 @@ const EditModal = () => {
                 </p>
                 <div className="btns-tasks">
                   <button onClick={() => {
+                    setGetTaskId(task.id)
+                    setTaskValue(task.title)
                     handleRenameModal()
-                    findTaskRename(task.title)
                   }} className="btn-edit">
                     <Pencil />
                   </button>

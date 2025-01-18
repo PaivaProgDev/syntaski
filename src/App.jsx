@@ -70,9 +70,25 @@ const App = () => {
   };
 
   // Abstrai o valor da tarefa
-  const [taskValue, setTaskValue] = useState(null);
-  const findTaskRename = (taskTitle) => {
-    setTaskValue(taskTitle)
+  const [taskValues, setTaskValue] = useState('');
+
+  // Abstrai o ID da tarefa
+  const [getTaskId, setGetTaskId] = useState('');
+
+  const findTaskRename = (taskValue) => {
+
+    const editedTask = task.map(task => {
+      if (task.id === getTaskId) {
+        return {
+          ...task,
+          title: taskValue,
+
+        }
+      }
+      return task
+    })
+
+    setTask(editedTask)
   }
 
   return (
@@ -89,7 +105,9 @@ const App = () => {
           completeTask,
           handleDelTask,
           findTaskRename,
-          taskValue
+          taskValues,
+          setTaskValue,
+          setGetTaskId
         }}
       >
         {/* Transição ao rendezar os componentes */}
