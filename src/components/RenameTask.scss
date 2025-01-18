@@ -53,6 +53,14 @@
       }
     }
 
+    .label-input-rename {
+      display: flex;
+      align-items: center;
+      background-color: $bg-input-color;
+      padding-left: 10px;
+      color: $title-color;
+    }
+
     .btns-rename-modal {
       display: flex;
       align-items: center;

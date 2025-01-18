@@ -20,10 +20,12 @@ const RenameTask = () => {
           <span>Syntaski</span>
         </div>
         <div className="edit-task-reference" >
-          <ListRestart />
-          <p className="task-line">{taskValue}</p>
+          <p className="task-line">- {taskValue}</p>
         </div>
-        <Input style={btnStyle.inputAdd} placeholder={"Edite sua tarefa"} />
+        <label className="label-input-rename">
+          <ListRestart />
+          <Input style={btnStyle.inputAdd} placeholder={"Edite sua tarefa"} />
+        </label>
         <div className="btns-rename-modal">
           <button>Confirmar</button>
           <button onClick={handleRenameModal}>Cancelar</button>

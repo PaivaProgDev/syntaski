@@ -66,6 +66,7 @@ const App = () => {
   const [openRenameModal, setOpenRenameModal] = useState(false);
   const handleRenameModal = () => {
     setOpenRenameModal(!openRenameModal);
+    window.scrollTo(0, 0)
   };
 
   // Abstrai o valor da tarefa

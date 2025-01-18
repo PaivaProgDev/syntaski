@@ -35,6 +35,8 @@ export const btnStyle = {
   },
 
   inputAdd: {
+    display: "flex",
+    alignItems: "center",
     backgroundColor: "#eaefff",
     border: 0,
     padding: "10px 15px",
