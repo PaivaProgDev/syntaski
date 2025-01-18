@@ -4,10 +4,10 @@ import TemaContext from "../context/Context";
 import { useContext } from "react";
 import "./RenameTask.scss";
 import { btnStyle } from "./CardAddTask";
+import { ListRestart } from "lucide-react";
 
 const RenameTask = () => {
-  const { handleRenameModal, setTask, task, openRenameModal } =
-    useContext(TemaContext);
+  const { handleRenameModal, openRenameModal, findTaskRename, taskValue } = useContext(TemaContext);
 
   return (
     <div
@@ -19,7 +19,10 @@ const RenameTask = () => {
           <img className="logo" src={logo} alt="Logo da Syntaski" />
           <span>Syntaski</span>
         </div>
-        <p className="task-line">(tarefa aqui)</p>
+        <div className="edit-task-reference" >
+          <ListRestart />
+          <p className="task-line">{taskValue}</p>
+        </div>
         <Input style={btnStyle.inputAdd} placeholder={"Edite sua tarefa"} />
         <div className="btns-rename-modal">
           <button>Confirmar</button>

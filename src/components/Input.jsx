@@ -1,4 +1,4 @@
-const Input = ({ style, placeholder, event, values }) => {
+const Input = ({ style, placeholder, event, values, length }) => {
   return (
     <input
       onChange={event}
@@ -6,6 +6,7 @@ const Input = ({ style, placeholder, event, values }) => {
       type="text"
       placeholder={placeholder}
       value={values}
+      maxLength={length}
     ></input>
   );
 };

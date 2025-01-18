@@ -10,13 +10,14 @@
     color: $task-color;
 
     h3 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
     }
 
     p {
       font-size: 0.95rem;
       width: 90%;
+      margin-top: 1rem;
 
       .more {
         font-size: 2rem;

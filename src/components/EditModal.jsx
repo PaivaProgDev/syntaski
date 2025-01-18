@@ -1,20 +1,18 @@
+// Style
 import "./EditModal.scss";
+// Images
 import logo from "../assets/img/syntaski-logo.png";
-import { ChevronRightIcon, Pencil, Trash, ClipboardList } from "lucide-react";
+// Icons
+import { ChevronRightIcon, Pencil, Trash } from "lucide-react";
+// Components
 import NoTaskMessage from "./NoTaskMessage";
+// ContextApi
 import { useContext } from "react";
 import TemaContext from "../context/Context";
 
 const EditModal = () => {
-  const { handleRenameModal, setTask, task, handleEditModal, openEditModal } =
+  const { handleRenameModal, task, handleEditModal, handleDelTask, findTaskRename } =
     useContext(TemaContext);
-
-  // Deleta a tarefa
-  const handleDelTask = (taskId) => {
-    const prev = task.filter((filteredTask) => filteredTask.id !== taskId);
-
-    setTask(prev);
-  };
 
   return (
     <div className="bg-modal-edit">
@@ -35,10 +33,13 @@ const EditModal = () => {
                 <p
                   className={`task-line ${task.isConcluded ? "concluded" : ""}`}
                 >
-                  {task.title}
+                  - {task.title}
                 </p>
                 <div className="btns-tasks">
-                  <button onClick={handleRenameModal} className="btn-edit">
+                  <button onClick={() => {
+                    handleRenameModal()
+                    findTaskRename(task.title)
+                  }} className="btn-edit">
                     <Pencil />
                   </button>
                   <button

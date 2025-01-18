@@ -77,11 +77,12 @@ const CardAddTask = ({ }) => {
             style={btnStyle.inputAdd}
             placeholder={"Digite uma tarefa"}
             values={taskValue}
+            length={400}
           />
           <Button
             event={(e) => {
               e.preventDefault();
-              if (taskValue !== "") {
+              if (taskValue.trim() !== "") {
                 handleAddTask();
                 setTaskValue("");
               }

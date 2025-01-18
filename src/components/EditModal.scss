@@ -7,7 +7,7 @@
   .modal-content {
     background-color: white;
     width: 100%;
-    max-width: 30rem;
+    max-width: 33rem;
     padding: 25px;
     border-radius: 10px;
     overflow-wrap: break-word;
@@ -26,7 +26,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      gap: 20px;
       color: $option-color;
       font-weight: 300;
       font-size: 0.9rem;
@@ -74,11 +74,12 @@
     text-decoration: line-through;
     color: rgb(164, 164, 164);
   }
+
   .clipboard-icon-task {
     color: $primary-color;
   }
 
-  &.concluded > .clipboard-icon-task {
+  &.concluded>.clipboard-icon-task {
     color: rgb(164, 164, 164);
   }
 }
