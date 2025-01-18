@@ -13,17 +13,20 @@
   font-family: Onest, "Open Sans", "Noto Sans", sans-serif;
 }
 
-body {
-  background: linear-gradient($primary-color, $secondary-color);
-  min-height: 100%;
-  width: 100%;
-}
-
 .container {
   height: 100%;
   width: 100%;
   min-height: 100vh;
   padding: 2rem 0.5rem;
+  transition: 250ms ease-in-out;
+
+  &.dark {
+    background-color: #212121;
+  }
+
+  &.light {
+    background: $primary-color;
+  }
 }
 
 .transition-container {

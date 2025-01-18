@@ -27,6 +27,7 @@ export const btnStyle = {
     cursor: "pointer",
     padding: "5px 7px",
     alignItems: "center",
+    borderRadius: "0"
   },
 
   btnOption: {
@@ -46,7 +47,7 @@ export const btnStyle = {
 };
 
 const CardAddTask = ({ }) => {
-  const { addTaskValue, completeTask, task, handleEditModal, addedTask } =
+  const { addTaskValue, completeTask, task, handleEditModal, addedTask, handleTheme, theme } =
     useContext(TemaContext);
 
   // Valor do input
@@ -59,7 +60,7 @@ const CardAddTask = ({ }) => {
   };
 
   return (
-    <div className="card">
+    <div className={`card ${theme ? "dark" : ""}`}>
       <div className="card-header">
         <div className="logo-box">
           <img className="logo" src={logo} alt="Logo da Syntaski" />
@@ -67,7 +68,7 @@ const CardAddTask = ({ }) => {
         </div>
         <Button
           style={btnStyle.btnOption}
-          content={<Settings2Icon color="#373737" />}
+          content={<Settings2Icon color={`${theme ? '#fff' : "blue"}`} />}
           event={() => setPopUpIsOpen(true)}
         />
       </div>
@@ -99,9 +100,10 @@ const CardAddTask = ({ }) => {
         <ul className="list-tasks">
           {task.map((task) => (
             <li
-              className="task-added"
+              className={`task-added ${theme ? "dark" : ""}`}
               onClick={() => completeTask(task.id)}
               key={task.id}
+
             >
               <p className={`task-line ${task.isConcluded ? "concluded" : ""}`}>
                 - {task.title}
@@ -116,6 +118,8 @@ const CardAddTask = ({ }) => {
         handleEditModal={handleEditModal}
         isOpen={popUpIsOpen}
         setPopUpIsOpen={setPopUpIsOpen}
+        handleTheme={handleTheme}
+        theme={theme}
       />
     </div>
   );

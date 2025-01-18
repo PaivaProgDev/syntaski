@@ -10,6 +10,12 @@
   padding: 25px;
   border-radius: 10px;
   position: relative;
+  transition: 250ms ease-in-out;
+
+  &.dark {
+    background-color: #3f3f3f;
+    color: #fff;
+  }
 
   .card-header {
     display: flex;
@@ -36,6 +42,11 @@
     cursor: pointer;
     position: relative;
     border-top: solid 1px rgb(206, 206, 206);
+    transition: 250ms ease-in-out;
+
+    &.dark {
+      color: #fff;
+    }
 
 
     .checklist {

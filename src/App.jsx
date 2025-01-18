@@ -127,9 +127,14 @@ const App = () => {
     theme: "colored",
   });
 
+  const [theme, setTheme] = useState(false)
+
+  const handleTheme = () => {
+    setTheme(!theme)
+  }
 
   return (
-    <main className="container">
+    <main className={`container ${theme ? "dark" : "light"}`} >
       <TemaContext.Provider
         value={{
           handleRenameModal,
@@ -148,6 +153,8 @@ const App = () => {
           deletedTask,
           editedTask,
           addedTask,
+          handleTheme,
+          theme,
         }}
       >
         <ToastContainer
