@@ -7,6 +7,9 @@ import EditModal from "./components/EditModal";
 import RenameTask from "./components/RenameTask";
 import TemaContext from "./context/Context";
 
+import { ToastContainer, toast } from 'react-toastify';
+
+
 // Estado das tarefas
 const App = () => {
   const [task, setTask] = useState(() => {
@@ -91,6 +94,40 @@ const App = () => {
     setTask(editedTask)
   }
 
+  const deletedTask = () => toast.error("Tarefa deletada!", {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "colored",
+  });
+
+  const editedTask = () => toast.warn("Tarefa editada!", {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "colored",
+  });
+
+  const addedTask = () => toast.success("Tarefa adicionada!", {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "colored",
+  });
+
+
   return (
     <main className="container">
       <TemaContext.Provider
@@ -107,9 +144,24 @@ const App = () => {
           findTaskRename,
           taskValues,
           setTaskValue,
-          setGetTaskId
+          setGetTaskId,
+          deletedTask,
+          editedTask,
+          addedTask,
         }}
       >
+        <ToastContainer
+          position="bottom-right"
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover={false}
+          theme="colored" />
+
         {/* Transição ao rendezar os componentes */}
         <div
           className={`transition-container ${!openEditModal && !openRenameModal ? "fade-in" : "fade-out"

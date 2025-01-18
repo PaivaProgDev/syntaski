@@ -46,7 +46,7 @@ export const btnStyle = {
 };
 
 const CardAddTask = ({ }) => {
-  const { addTaskValue, completeTask, task, handleEditModal } =
+  const { addTaskValue, completeTask, task, handleEditModal, addedTask } =
     useContext(TemaContext);
 
   // Valor do input
@@ -87,6 +87,7 @@ const CardAddTask = ({ }) => {
               if (taskValue.trim() !== "") {
                 handleAddTask();
                 setTaskValue("");
+                addedTask()
               }
             }}
             style={btnStyle.btnAdd}
