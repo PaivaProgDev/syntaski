@@ -11,42 +11,53 @@ import { useContext } from "react";
 import TemaContext from "../context/Context";
 
 const EditModal = () => {
-  const { handleRenameModal, task, handleEditModal, handleDelTask, setGetTaskId, setTaskValue, deletedTask } =
-    useContext(TemaContext);
+  const {
+    handleRenameModal,
+    task,
+    handleEditModal,
+    handleDelTask,
+    setGetTaskId,
+    setTaskValue,
+    deletedTask,
+    theme,
+  } = useContext(TemaContext);
 
   return (
-    <div className="bg-modal-edit">
-      <div className="modal-content">
+    <div className={`bg-modal-edit`}>
+      <div className={`modal-content ${theme ? "dark" : ""}`}>
         <div className="modal-edit-header">
           <div className="logo-box">
             <img className="logo-modal" src={logo} alt="" />
             <span>Syntaski</span>
           </div>
           <button onClick={handleEditModal} className="btn-close-modal">
-            <ChevronRightIcon />
+            <ChevronRightIcon color={`${theme ? "#fff" : "blue"}`} />
           </button>
         </div>
         {task.length ? (
           <ul>
             {task.map((task) => (
-              <li className="task-edit" key={task.id}>
+              <li className={`task-edit ${theme ? "dark" : ""}`} key={task.id}>
                 <p
                   className={`task-line ${task.isConcluded ? "concluded" : ""}`}
                 >
                   - {task.title}
                 </p>
                 <div className="btns-tasks">
-                  <button onClick={() => {
-                    setGetTaskId(task.id)
-                    setTaskValue(task.title)
-                    handleRenameModal()
-                  }} className="btn-edit">
+                  <button
+                    onClick={() => {
+                      setGetTaskId(task.id);
+                      setTaskValue(task.title);
+                      handleRenameModal();
+                    }}
+                    className="btn-edit"
+                  >
                     <Pencil />
                   </button>
                   <button
                     onClick={() => {
-                      handleDelTask(task.id)
-                      deletedTask()
+                      handleDelTask(task.id);
+                      deletedTask();
                     }}
                     className="btn-del"
                   >

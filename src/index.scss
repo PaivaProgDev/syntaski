@@ -21,7 +21,7 @@
   transition: 250ms ease-in-out;
 
   &.dark {
-    background-color: #212121;
+    background-color: $dark-color;
   }
 
   &.light {
@@ -53,5 +53,4 @@
 .fade-out-modal {
   opacity: 0;
   pointer-events: none;
-
 }

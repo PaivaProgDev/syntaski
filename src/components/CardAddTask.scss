@@ -48,7 +48,6 @@
       color: #fff;
     }
 
-
     .checklist {
       display: flex;
       align-items: center;
@@ -87,7 +86,7 @@
         color: $primary-color;
       }
 
-      &.concluded>.clipboard-icon-task {
+      &.concluded > .clipboard-icon-task {
         color: rgb(164, 164, 164);
       }
 
