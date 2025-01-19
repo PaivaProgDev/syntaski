@@ -27,7 +27,7 @@ export const btnStyle = {
     cursor: "pointer",
     padding: "5px 7px",
     alignItems: "center",
-    borderRadius: "0"
+    borderRadius: "0",
   },
 
   btnOption: {
@@ -43,12 +43,24 @@ export const btnStyle = {
     padding: "10px 15px",
     outline: "none",
     width: "100%",
+
+    dark: {
+      backgroundColor: "#252525",
+      color: "#fff",
+    },
   },
 };
 
-const CardAddTask = ({ }) => {
-  const { addTaskValue, completeTask, task, handleEditModal, addedTask, handleTheme, theme } =
-    useContext(TemaContext);
+const CardAddTask = ({}) => {
+  const {
+    addTaskValue,
+    completeTask,
+    task,
+    handleEditModal,
+    addedTask,
+    handleTheme,
+    theme,
+  } = useContext(TemaContext);
 
   // Valor do input
   const [taskValue, setTaskValue] = useState("");
@@ -68,7 +80,7 @@ const CardAddTask = ({ }) => {
         </div>
         <Button
           style={btnStyle.btnOption}
-          content={<Settings2Icon color={`${theme ? '#fff' : "blue"}`} />}
+          content={<Settings2Icon color={`${theme ? "#fff" : "blue"}`} />}
           event={() => setPopUpIsOpen(true)}
         />
       </div>
@@ -88,7 +100,7 @@ const CardAddTask = ({ }) => {
               if (taskValue.trim() !== "") {
                 handleAddTask();
                 setTaskValue("");
-                addedTask()
+                addedTask();
               }
             }}
             style={btnStyle.btnAdd}
@@ -103,7 +115,6 @@ const CardAddTask = ({ }) => {
               className={`task-added ${theme ? "dark" : ""}`}
               onClick={() => completeTask(task.id)}
               key={task.id}
-
             >
               <p className={`task-line ${task.isConcluded ? "concluded" : ""}`}>
                 - {task.title}

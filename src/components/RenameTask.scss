@@ -18,15 +18,18 @@
   overflow-wrap: break-word;
   word-break: break-all;
 
+  &.dark {
+    background-color: $dark-color;
+  }
+
   &.active {
     opacity: 1;
     visibility: visible;
     pointer-events: all;
   }
 
-  &.active>.card-content {
+  &.active > .card-content {
     transform: translateY(0);
-
   }
 
   .card-content {
@@ -41,6 +44,15 @@
     transition: 250ms ease-in-out;
     overflow-y: auto;
 
+    &.dark {
+      background-color: $dark-bg-color;
+      color: #fff;
+    }
+
+    &.dark > .edit-task-reference {
+      color: #fff;
+    }
+
     .edit-task-reference {
       display: flex;
       align-items: center;
@@ -49,7 +61,7 @@
 
       .task-line {
         margin: 1rem 0;
-        font-size: .96rem;
+        font-size: 0.96rem;
       }
     }
 
@@ -59,7 +71,6 @@
       background-color: $bg-input-color;
       padding-left: 13px;
       color: $title-color;
-
     }
 
     .btns-rename-modal {

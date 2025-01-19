@@ -7,44 +7,68 @@ import { btnStyle } from "./CardAddTask";
 import { ListRestart } from "lucide-react";
 
 const RenameTask = () => {
-  const { handleRenameModal, openRenameModal, taskValues, findTaskRename, editedTask } = useContext(TemaContext);
+  const {
+    handleRenameModal,
+    openRenameModal,
+    taskValues,
+    findTaskRename,
+    editedTask,
+    theme,
+  } = useContext(TemaContext);
 
-  const [valueRename, setValueRename] = useState('')
+  const [valueRename, setValueRename] = useState("");
 
   return (
     <div
       onClick={handleRenameModal}
-      className={`rename-task-bg ${openRenameModal ? "active" : ""}`}
+      className={`rename-task-bg ${openRenameModal ? "active" : ""} ${
+        theme ? "dark" : ""
+      }`}
     >
-      <div onClick={(e) => e.stopPropagation()} className="card-content">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className={`card-content ${theme ? "dark" : ""}`}
+      >
         <div className="logo-box">
           <img className="logo" src={logo} alt="Logo da Syntaski" />
           <span>Syntaski</span>
         </div>
-        <div className="edit-task-reference" >
+        <div className="edit-task-reference">
           <p className="task-line">- {taskValues}</p>
         </div>
         <form>
           <label className="label-input-rename">
             <ListRestart />
-            <Input values={valueRename} event={(e) => setValueRename(e.target.value)} style={btnStyle.inputAdd} placeholder={"Edite sua tarefa"} />
+            <Input
+              values={valueRename}
+              event={(e) => setValueRename(e.target.value)}
+              style={btnStyle.inputAdd}
+              placeholder={"Edite sua tarefa"}
+            />
           </label>
           <div className="btns-rename-modal">
-            <button onClick={(e) => {
-              e.preventDefault()
-              if (valueRename.trim() !== '') {
-                e.preventDefault()
-                findTaskRename(valueRename)
-                setValueRename('')
-                editedTask()
-              }
-            }}>Confirmar</button>
-            <button onClick={(e) => {
-              e.preventDefault()
-              handleRenameModal()
-              setValueRename('')
-            }}>Cancelar</button>
-
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                if (valueRename.trim() !== "") {
+                  e.preventDefault();
+                  findTaskRename(valueRename);
+                  setValueRename("");
+                  editedTask();
+                }
+              }}
+            >
+              Confirmar
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                handleRenameModal();
+                setValueRename("");
+              }}
+            >
+              Cancelar
+            </button>
           </div>
         </form>
       </div>

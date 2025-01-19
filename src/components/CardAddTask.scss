@@ -13,7 +13,7 @@
   transition: 250ms ease-in-out;
 
   &.dark {
-    background-color: #3f3f3f;
+    background-color: $dark-bg-color;
     color: #fff;
   }
 
@@ -46,6 +46,7 @@
 
     &.dark {
       color: #fff;
+      border-top: solid 1px rgb(79, 79, 79);
     }
 
     .checklist {
