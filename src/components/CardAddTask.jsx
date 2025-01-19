@@ -51,7 +51,7 @@ export const btnStyle = {
   },
 };
 
-const CardAddTask = ({}) => {
+const CardAddTask = ({ }) => {
   const {
     addTaskValue,
     completeTask,
@@ -123,7 +123,7 @@ const CardAddTask = ({}) => {
           ))}
         </ul>
       ) : (
-        <NoTaskMessage />
+        <NoTaskMessage theme={theme} />
       )}
       <PopupOption
         handleEditModal={handleEditModal}

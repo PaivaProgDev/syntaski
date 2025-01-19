@@ -68,7 +68,7 @@ const EditModal = () => {
             ))}
           </ul>
         ) : (
-          <NoTaskMessage />
+          <NoTaskMessage theme={theme} />
         )}
       </div>
     </div>

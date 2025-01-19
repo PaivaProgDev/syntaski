@@ -9,6 +9,10 @@
   .warning-tasks {
     color: $task-color;
 
+    &.dark {
+      color: #fff;
+    }
+
     h3 {
       font-size: 1.2rem;
       font-weight: 600;

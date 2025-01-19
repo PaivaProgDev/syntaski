@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./index.scss";
 
 // Components
@@ -18,10 +18,18 @@ const App = () => {
     return localSaved ? JSON.parse(localSaved) : [];
   });
 
+  // tema
+  const [theme, setTheme] = useState(() => {
+    const localSavedTheme = localStorage.getItem('theme')
+    return localSavedTheme === 'dark'
+  })
+
+
   //   Local Storage - Seleciona as tarefas
   useEffect(() => {
     localStorage.setItem("task", JSON.stringify(task));
-  }, [task]);
+    localStorage.setItem('theme', theme ? 'dark' : '');
+  }, [task, theme]);
 
   //   Adiciona uma tarefa
   const addTaskValue = (taskValue) => {
@@ -127,7 +135,6 @@ const App = () => {
     theme: "colored",
   });
 
-  const [theme, setTheme] = useState(false)
 
   const handleTheme = () => {
     setTheme(!theme)
