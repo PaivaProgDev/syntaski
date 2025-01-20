@@ -8,6 +8,7 @@ import RenameTask from "./components/RenameTask";
 import TemaContext from "./context/Context";
 
 import { ToastContainer, toast } from 'react-toastify';
+import ModalInfo from "./components/ModalInfo";
 
 
 // Estado das tarefas
@@ -140,6 +141,12 @@ const App = () => {
     setTheme(!theme)
   }
 
+  const [openWindowInfo, setOpenWindowInfo] = useState(false)
+
+  const handleWindowInfo = () => {
+    setOpenWindowInfo(!openWindowInfo)
+  }
+
   return (
     <main className={`container ${theme ? "dark" : "light"}`} >
       <TemaContext.Provider
@@ -162,6 +169,7 @@ const App = () => {
           addedTask,
           handleTheme,
           theme,
+          handleWindowInfo,
         }}
       >
         <ToastContainer
@@ -178,10 +186,10 @@ const App = () => {
 
         {/* Transição ao rendezar os componentes */}
         <div
-          className={`transition-container ${!openEditModal && !openRenameModal ? "fade-in" : "fade-out"
+          className={`transition-container ${!openEditModal && !openRenameModal && !openWindowInfo ? "fade-in" : "fade-out"
             }`}
         >
-          {!openEditModal && !openRenameModal && <CardAddTask />}
+          {!openEditModal && !openRenameModal && !openWindowInfo && <CardAddTask />}
         </div>
 
         <div
@@ -191,8 +199,15 @@ const App = () => {
           {openEditModal && <EditModal />}
         </div>
 
-        {openEditModal && <RenameTask />}
+        <div
+          className={`transition-container ${openWindowInfo ? "fade-in" : "fade-out"
+            }`}
+        >
+          {openWindowInfo && <ModalInfo />}
 
+        </div>
+
+        {openEditModal && <RenameTask />}
       </TemaContext.Provider>
 
     </main>

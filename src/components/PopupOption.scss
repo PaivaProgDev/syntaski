@@ -18,7 +18,7 @@
     opacity: 1;
   }
 
-  &.active > .popup-card {
+  &.active>.popup-card {
     transform: translateX(0);
     pointer-events: all;
   }
@@ -31,7 +31,6 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 7px gray;
-    background-color: white;
     border-radius: 10px;
     overflow: hidden;
     transform: translateX(8px);
@@ -59,7 +58,7 @@
         transition: 300ms ease-in-out;
       }
 
-      &:focus-visible > .icon {
+      &:focus-visible>.icon {
         transform: translateX(-3px);
       }
 
@@ -68,7 +67,7 @@
         transition: 300ms ease-in-out;
       }
 
-      &:hover > .icon {
+      &:hover>.icon {
         transform: translateX(-3px);
         transition: 300ms ease-in-out;
       }

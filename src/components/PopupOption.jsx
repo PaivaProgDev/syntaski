@@ -1,19 +1,21 @@
 import { Pencil, Sun, Info, Moon } from "lucide-react";
 import "./PopupOption.scss";
 
+
 const PopupOption = ({
   setPopUpIsOpen,
   isOpen,
   handleEditModal,
   handleTheme,
   theme,
+  handleWindowInfo
 }) => {
   return (
     <div
       className={`popup-bg ${isOpen ? "active" : ""}`}
       onClick={() => setPopUpIsOpen(false)}
     >
-      <div onClick={(e) => e.stopPropagation()} className="popup-card">
+      <div onClick={(e) => e.stopPropagation()} className={`popup-card`}>
         <button onClick={handleEditModal}>
           <Pencil className="icon" />
           <span>Editar</span>
@@ -23,7 +25,7 @@ const PopupOption = ({
           {/* <Moon /> */}
           {theme ? <span>Escuro</span> : <span>Claro</span>}
         </button>
-        <button>
+        <button onClick={handleWindowInfo}>
           <Info className="icon" />
           <span>Informações</span>
         </button>

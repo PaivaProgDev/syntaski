@@ -60,6 +60,7 @@ const CardAddTask = ({ }) => {
     addedTask,
     handleTheme,
     theme,
+    handleWindowInfo,
   } = useContext(TemaContext);
 
   // Valor do input
@@ -131,6 +132,7 @@ const CardAddTask = ({ }) => {
         setPopUpIsOpen={setPopUpIsOpen}
         handleTheme={handleTheme}
         theme={theme}
+        handleWindowInfo={handleWindowInfo}
       />
     </div>
   );

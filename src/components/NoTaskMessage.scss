@@ -15,12 +15,13 @@
 
     h3 {
       font-size: 1.2rem;
+      display: flex;
       font-weight: 600;
+      align-self: center;
     }
 
     p {
       font-size: 0.95rem;
-      width: 90%;
       margin-top: 1rem;
 
       .more {
