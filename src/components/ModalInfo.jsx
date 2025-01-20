@@ -34,10 +34,13 @@ const ModalInfo = () => {
                                 Botão EDITAR: Abre uma nova janela para editar as tarefas, nela conterá 2 botões.
                             </strong>
                             <p>
-                                1 - O botão que tem um lápis, é para editar a tarefa. Ao clicar, abrirá um modal para edição da mesma.
+                                1- O botão que tem um lápis, é para editar a tarefa. Ao clicar, abrirá um modal para edição da mesma.
                             </p>
                             <p>
-                                2 - O botão que tem uma lixeira, é para deletar a tarefa desejada.
+                                2- O botão que tem uma lixeira, é para deletar a tarefa desejada.
+                            </p>
+                            <p>
+                                3- Completou uma tarefa ? Dê um click sobre a mesma para riscá-lá!
                             </p>
                         </div>
                     </div>

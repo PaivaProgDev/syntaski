@@ -20,6 +20,7 @@ const EditModal = () => {
     setTaskValue,
     deletedTask,
     theme,
+    completeTask
   } = useContext(TemaContext);
 
   return (
@@ -37,7 +38,9 @@ const EditModal = () => {
         {task.length ? (
           <ul>
             {task.map((task) => (
-              <li className={`task-edit ${theme ? "dark" : ""}`} key={task.id}>
+              <li
+                onClick={() => completeTask(task.id)}
+                className={`task-edit ${theme ? "dark" : ""}`} key={task.id}>
                 <p
                   className={`task-line ${task.isConcluded ? "concluded" : ""}`}
                 >
@@ -55,9 +58,10 @@ const EditModal = () => {
                     <Pencil />
                   </button>
                   <button
-                    onClick={() => {
+                    onClick={(e) => {
                       handleDelTask(task.id);
                       deletedTask();
+                      e.stopPropagation()
                     }}
                     className="btn-del"
                   >

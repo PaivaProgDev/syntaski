@@ -38,6 +38,7 @@
       text-wrap: wrap;
       padding: 10px 0;
       width: 100%;
+      cursor: pointer;
       position: relative;
       border-bottom: solid 1px rgb(206, 206, 206);
 
@@ -88,7 +89,7 @@
     color: $primary-color;
   }
 
-  &.concluded > .clipboard-icon-task {
+  &.concluded>.clipboard-icon-task {
     color: rgb(164, 164, 164);
   }
 }
